@@ -2,6 +2,8 @@
 
 var speed : Vector2 = Vector2(50,50);
 var spotLightEnabled : boolean = false;
+var health : int = 100;
+var slider : UI.Slider;
 private var rb : Rigidbody2D;
 private var lightSource;
 private var movement : Vector2;
@@ -33,6 +35,28 @@ function Update()
       speed.y * inputY);
     //end keyboard controlls -----------------------------  
 }
+
+function Die(){
+	Debug.Log("you died");
+}
+
+function TakeDamage (amount : int){
+	if(health - amount < 0)
+		Die();
+	else {
+		Debug.Log("you took some damage");
+		health -= amount;
+		slider.value = health;
+	}
+		
+}
+
+
+function OnCollisionEnter2D(coll : Collision2D) {
+        if (coll.gameObject.tag == "thornWall")
+            TakeDamage(20);
+        
+    }
 
 function FixedUpdate()
 {
