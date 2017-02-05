@@ -801,8 +801,9 @@ GameObject:
   - component: {fileID: 927288089}
   - component: {fileID: 927288091}
   - component: {fileID: 927288090}
+  - component: {fileID: 927288092}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GoldAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -865,6 +866,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 927288088}
+--- !u!114 &927288092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 927288088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3f7901a93c916944ba5626e8665f27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: 1
 --- !u!1 &1067268035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1478,7 +1491,7 @@ GameObject:
   - component: {fileID: 1415089934}
   - component: {fileID: 1415089933}
   m_Layer: 5
-  m_Name: Image
+  m_Name: GoldImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

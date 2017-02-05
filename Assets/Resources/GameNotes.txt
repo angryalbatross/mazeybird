@@ -1,0 +1,19 @@
+TODOS:
+-Make levels unlocked by a certain amount of gold
+-Make new levels (maybe 36 to start)
+-Get video ads running as a way to earn gold
+-Have the player restart after they die
+-Implement lives limit
+-Get reset to 5 lives each day, 10 if you watch an ad?
+-Player should go back to start screen after finding the nest
+-Play cute feeding animation when you return to the nest
+-Switch to dead bird sprite when you hit too many thorns
+-Redo player sprite
+-Create different backgrounds for different seasons
+
+------------------------------------------------------------
+Game Overview
+This game is supposed to play like flappy bird, except your are playing as a bird
+returning home to her nest to feed her chicks. Your goal is to navigate the mazelike
+path to your nest without taking too much damage from thorns and brambles.
+If you take too much damage you die, and your chicks starve, scary!
