@@ -2,9 +2,11 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+
 public class LoadSceneOnClick : MonoBehaviour {
 
-    var goldTillUnlocked = 0;
+    int goldTillUnlocked = 0;
+
     public void LoadByIndex(int sceneIndex)
     {
         var currentMoney = PlayerPrefs.GetInt("gold");

@@ -1,10 +1,8 @@
 TODOS:
 -Make levels unlocked by a certain amount of gold
--Make new levels (maybe 36 to start)
+-Make new levels (maybe 48 to start)
 -Get video ads running as a way to earn gold
 -Have the player restart after they die
--Implement lives limit
--Get reset to 5 lives each day, 10 if you watch an ad?
 -Player should go back to start screen after finding the nest
 -Play cute feeding animation when you return to the nest
 -Switch to dead bird sprite when you hit too many thorns
