@@ -2,12 +2,12 @@ TODOS:
 -Make levels unlocked by a certain amount of gold
 -Make new levels (maybe 48 to start)
 -Get video ads running as a way to earn gold
--Have the player restart after they die
--Player should go back to start screen after finding the nest
 -Play cute feeding animation when you return to the nest
 -Switch to dead bird sprite when you hit too many thorns
--Redo player sprite
+-Redo all sprites
 -Create different backgrounds for different seasons
+-Show whole map at start of level
+-Zoom to player at start of level
 
 ------------------------------------------------------------
 Game Overview

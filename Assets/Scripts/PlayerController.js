@@ -5,6 +5,8 @@ var spotLightEnabled : boolean = false;
 var health : int = 100;
 var animationController : GameObject;
 var totalMoney : int;
+var youDied : GameObject;
+var youWon : GameObject;
 private var isInvincible : boolean = false;
 private var rb : Rigidbody2D;
 private var movement : Vector2;
@@ -62,10 +64,16 @@ function YouWin () {
     isInvincible = true;
     var currentMoney = PlayerPrefs.GetInt("gold");
     PlayerPrefs.SetInt("gold", totalMoney + currentMoney);
+    PlayerPrefs.SetInt("lastLevelLoaded", 0);
     PlayerPrefs.Save();
+    var lastLevelLoaded = PlayerPrefs.GetInt("lastLevelLoaded");
+    Debug.Log("lastLevelLoaded was = " + lastLevelLoaded);
+    youWon.SetActive(true);
+    controlsEnabled = false;
 }
 
 function YouLose () {
+    youDied.SetActive(true);
     controlsEnabled = false;
     Debug.Log("You Lost :( :( :(");
     isInvincible = true;
