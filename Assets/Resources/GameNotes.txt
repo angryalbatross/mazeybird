@@ -1,13 +1,14 @@
 TODOS:
 -Make levels unlocked by a certain amount of gold
--Make new levels (maybe 48 to start)
--Get video ads running as a way to earn gold
--Play cute feeding animation when you return to the nest
--Switch to dead bird sprite when you hit too many thorns
--Redo all sprites
--Create different backgrounds for different seasons
--Show whole map at start of level
--Zoom to player at start of level
+-Make sure that players have to unlock levels sequentially - wednesday (currently they could unlock both level 2 and 3 by just paying the cost for 3)
+-show hide the overlay X and gold cost to unlock based on maxLevelUnlocked - wednesday
+-Show whole map at start of level - wednesday
+-Zoom to player at start of level - wednesday
+-Get video ads running as a way to earn gold - friday
+-Make new levels (maybe 48 to start) - sat/sun
+-Redo all sprites - do this saturday/sunday
+-Create different backgrounds for different seasons - sat/sun
+-Play cute feeding animation when you return to the nest -?
 
 ------------------------------------------------------------
 Game Overview

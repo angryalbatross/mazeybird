@@ -4,6 +4,7 @@ var speed : Vector2 = Vector2(50,50);
 var spotLightEnabled : boolean = false;
 var health : int = 100;
 var animationController : GameObject;
+var deadSprite : GameObject;
 var totalMoney : int;
 var youDied : GameObject;
 var youWon : GameObject;
@@ -74,6 +75,8 @@ function YouWin () {
 
 function YouLose () {
     youDied.SetActive(true);
+    deadSprite.SetActive(true);
+    animationController.SetActive(false);
     controlsEnabled = false;
     Debug.Log("You Lost :( :( :(");
     isInvincible = true;
