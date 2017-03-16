@@ -6,13 +6,26 @@ using UnityEngine.SceneManagement;
 public class LoadSceneOnClick : MonoBehaviour {
 
     public GameObject notEnoughGoldAlert;
+    public GameObject unlockedLevelImage;
+    //public GameObject gold;
     public int goldTillUnlocked = 0;
     public int thisLevelNumber = 0;
-    private bool levelIsUnlocked = false;
+    public bool levelIsUnlocked = false;
+    private int maxLevelUnlocked = 0;
+
+    public void Start () {
+      maxLevelUnlocked = PlayerPrefs.GetInt("maxLevelUnlocked");
+      if(maxLevelUnlocked >= thisLevelNumber) {
+        //this level must have been unlocked so return true and hide the X
+        if(unlockedLevelImage != null) {
+          unlockedLevelImage.SetActive(false);
+        }
+        levelIsUnlocked = true;
+      }
+    }
 
     public void LoadByIndex(int sceneIndex)
     {
-        levelIsUnlocked = isLevelUnlocked();
         var currentMoney = PlayerPrefs.GetInt("gold");
         if(levelIsUnlocked) {
           // load the level
@@ -22,22 +35,16 @@ public class LoadSceneOnClick : MonoBehaviour {
             currentMoney -= goldTillUnlocked;
             PlayerPrefs.SetInt("gold", currentMoney);
             PlayerPrefs.SetInt("maxLevelUnlocked", thisLevelNumber);
-            SceneManager.LoadScene (sceneIndex);
+            if(unlockedLevelImage != null) {
+              unlockedLevelImage.SetActive(false);
+            }
+            levelIsUnlocked = true;
+            Debug.Log("scene was unlocked");
           } else {
             // show alert saying you don't have enough gold?
             notEnoughGoldAlert.SetActive(true);
           }
         }
 
-    }
-
-    private bool isLevelUnlocked(){
-      var maxLevelUnlocked = PlayerPrefs.GetInt("maxLevelUnlocked");
-      if(maxLevelUnlocked >= thisLevelNumber) {
-        //this level must have been unlocked so return true
-        return true;
-      } else {
-        return false;
-      }
     }
 }

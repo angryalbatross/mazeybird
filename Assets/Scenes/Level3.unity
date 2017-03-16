@@ -561,7 +561,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: YOU WON! Return to start?
+  m_Text: YOU WON! Return to start screen?
 --- !u!222 &700911188
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -950,11 +950,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 443212, guid: 96c0867a7ad9dfb41a5ce043cec529d8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.47
+      value: 17.2
       objectReference: {fileID: 0}
     - target: {fileID: 443212, guid: 96c0867a7ad9dfb41a5ce043cec529d8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.91
+      value: -28.9
       objectReference: {fileID: 0}
     - target: {fileID: 443212, guid: 96c0867a7ad9dfb41a5ce043cec529d8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -979,6 +979,14 @@ Prefab:
     - target: {fileID: 443212, guid: 96c0867a7ad9dfb41a5ce043cec529d8, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 443212, guid: 96c0867a7ad9dfb41a5ce043cec529d8, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.42779383
+      objectReference: {fileID: 0}
+    - target: {fileID: 443212, guid: 96c0867a7ad9dfb41a5ce043cec529d8, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.43749005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96c0867a7ad9dfb41a5ce043cec529d8, type: 2}
@@ -1244,7 +1252,7 @@ MonoBehaviour:
   notEnoughGoldAlert: {fileID: 0}
   unlockedLevelImage: {fileID: 0}
   goldTillUnlocked: 0
-  thisLevelNumber: 0
+  thisLevelNumber: 3
   levelIsUnlocked: 1
 --- !u!114 &1118488558
 MonoBehaviour:
@@ -2259,7 +2267,7 @@ MonoBehaviour:
   notEnoughGoldAlert: {fileID: 0}
   unlockedLevelImage: {fileID: 0}
   goldTillUnlocked: 0
-  thisLevelNumber: 1
+  thisLevelNumber: 3
   levelIsUnlocked: 1
 --- !u!114 &1519372713
 MonoBehaviour:
@@ -2306,7 +2314,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
