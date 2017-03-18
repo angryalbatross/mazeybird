@@ -1,9 +1,6 @@
 TODOS:
--Make sure that players have to unlock levels sequentially - wednesday (currently they could unlock both level 2 and 3 by just paying the cost for 3)
--Show whole map at start of level - friday
--Zoom to player at start of level - friday
--Allow player to view map of bush at any time - friday
--Get video ads running as a way to earn gold - friday
+-Make sure that players have to unlock levels sequentially - (currently they could unlock both level 2 and 3 by just paying the cost for 3)
+-Get video ads running as a way to earn gold 
 -Create thumbstick control for moving Player
 -implement screen tap to fly
 -Make new levels (maybe 48 to start, 12 per season - then could make new ones for year 2/3 etc...) - sat/sun

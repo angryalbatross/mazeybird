@@ -3,6 +3,11 @@
 var speed : Vector2 = Vector2(50,50);
 var spotLightEnabled : boolean = false;
 var health : int = 100;
+var mainCamera : GameObject;
+var mapCamera : GameObject;
+var mapOnButton : GameObject;
+var mapOffButton : GameObject;
+var startButton : GameObject;
 var animationController : GameObject;
 var deadSprite : GameObject;
 var totalMoney : int;
@@ -13,11 +18,13 @@ private var rb : Rigidbody2D;
 private var movement : Vector2;
 private var animator : Animator;
 private var controlsEnabled : boolean = true;
+private var isStart : boolean = true;
 
 function Start () {
-    animator = animationController.GetComponent.<Animator>();
+  animator = animationController.GetComponent.<Animator>();
 	rb = this.GetComponent.<Rigidbody2D>();
 	totalMoney = 0;
+  showMap();
 }
 
 function Update()
@@ -97,5 +104,43 @@ function OnCollisionEnter2D(coll : Collision2D) {
 
 function FixedUpdate()
 {
-	GetComponent.<Rigidbody2D>().velocity = movement;
+  if(controlsEnabled) {
+    GetComponent.<Rigidbody2D>().velocity = movement;
+  } else {
+    GetComponent.<Rigidbody2D>().velocity = Vector2(0,0);
+  }
+}
+
+function showMap() {
+  // turn off controlsEnabled
+  controlsEnabled = false;
+  // swap cameras
+  mapCamera.SetActive(true);
+  mainCamera.SetActive(false);
+  // show the hide map button
+  if(isStart) {
+    startButton.SetActive(true);
+  } else {
+    mapOffButton.SetActive(true);
+  }
+  mapOnButton.SetActive(false);
+
+  GetComponent.<Rigidbody2D>().gravityScale = 0;
+}
+
+function hideMap() {
+  GetComponent.<Rigidbody2D>().gravityScale = 2;
+  //swap map buttons
+  mapOnButton.SetActive(true);
+  if(isStart) {
+    startButton.SetActive(false);
+  } else {
+    mapOffButton.SetActive(false);
+  }
+  isStart = false;
+  //swap cameras
+  mainCamera.SetActive(true);
+  mapCamera.SetActive(false);
+  //turn on controlls
+  controlsEnabled = true;
 }
