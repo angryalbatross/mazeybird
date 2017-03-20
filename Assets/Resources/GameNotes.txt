@@ -1,13 +1,12 @@
 TODOS:
 -Make sure that players have to unlock levels sequentially - (currently they could unlock both level 2 and 3 by just paying the cost for 3)
--Get video ads running as a way to earn gold 
+-Get video ads running as a way to earn gold
 -Create thumbstick control for moving Player
 -implement screen tap to fly
--Make new levels (maybe 48 to start, 12 per season - then could make new ones for year 2/3 etc...) - sat/sun
--Redo all sprites - do this saturday/sunday
--Create different backgrounds for different seasons - sat/sun
+-Make new levels (maybe 48 to start, 12 per season - then could make new ones for year 2/3 etc...)
+-Redo all sprites
+-Create different backgrounds for different seasons
 -Play cute feeding animation when you return to the nest -?
--Should we only save gold if you successfully complete a level?
 
 ------------------------------------------------------------
 Game Overview
@@ -22,7 +21,7 @@ If you take too much damage you die, and your chicks starve, scary!
 ----Creating a new level---
 First save the new level
 second edit the "You Died" "Yes Button" level to be the current level number
-Load the start scene
+Load the start scene-+-
 Duplicate a level selector
 Change the level loaded by index
 Change the current level number

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LoadSceneOnClick : MonoBehaviour {
 
     public GameObject notEnoughGoldAlert;
+    public GameObject unlockPreviousLevelAlert;
     public GameObject unlockedLevelImage;
     //public GameObject gold;
     public int goldTillUnlocked = 0;
@@ -31,18 +32,24 @@ public class LoadSceneOnClick : MonoBehaviour {
           // load the level
           SceneManager.LoadScene (sceneIndex);
         } else {
-          if(currentMoney >= goldTillUnlocked ){
-            currentMoney -= goldTillUnlocked;
-            PlayerPrefs.SetInt("gold", currentMoney);
-            PlayerPrefs.SetInt("maxLevelUnlocked", thisLevelNumber);
-            if(unlockedLevelImage != null) {
-              unlockedLevelImage.SetActive(false);
+          //first check to make sure the previous level has been unlocked
+          if (PlayerPrefs.GetInt("maxLevelUnlocked") >= thisLevelNumber - 1) {
+            if(currentMoney >= goldTillUnlocked) {
+              currentMoney -= goldTillUnlocked;
+              PlayerPrefs.SetInt("gold", currentMoney);
+              PlayerPrefs.SetInt("maxLevelUnlocked", thisLevelNumber);
+              if(unlockedLevelImage != null) {
+                unlockedLevelImage.SetActive(false);
+              }
+              levelIsUnlocked = true;
+              Debug.Log("scene was unlocked");
+            } else {
+              // show alert saying you don't have enough gold?
+              notEnoughGoldAlert.SetActive(true);
             }
-            levelIsUnlocked = true;
-            Debug.Log("scene was unlocked");
           } else {
-            // show alert saying you don't have enough gold?
-            notEnoughGoldAlert.SetActive(true);
+            //show alert saying the previous level must be unlocked
+            unlockPreviousLevelAlert.SetActive(true);
           }
         }
 

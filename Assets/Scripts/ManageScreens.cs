@@ -8,6 +8,13 @@ public class ManageScreens : MonoBehaviour {
     public GameObject springLevels;
 
     public void Start() {
+      //unlock level 1 if we haven't unlocked anything yet
+      int maxLevelUnlocked = PlayerPrefs.GetInt("maxLevelUnlocked");
+      if(maxLevelUnlocked == "" || maxLevelUnlocked == 0) {
+        PlayerPrefs.SetInt("maxLevelUnlocked", 1);
+      }
+
+      //supposed to show he level screen when we are returning from
       int lastLevelLoaded = PlayerPrefs.GetInt("lastLevelLoaded");
       Debug.Log("lastLevelLoaded was = " + lastLevelLoaded);
 
