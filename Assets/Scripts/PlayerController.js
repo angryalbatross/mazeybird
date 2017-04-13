@@ -13,6 +13,8 @@ var deadSprite : GameObject;
 var totalMoney : int;
 var youDied : GameObject;
 var youWon : GameObject;
+var panSpeed : float = 3F;
+var touchControlsEnabled = false;
 private var isInvincible : boolean = false;
 private var rb : Rigidbody2D;
 private var movement : Vector2;
@@ -30,24 +32,53 @@ function Start () {
 function Update()
 {
     if(controlsEnabled && !isInvincible) {
-        //keyboard controlls-------------------------------------
         var inputX : float = Input.GetAxis("Horizontal");
         var inputY : float = Input.GetAxis("Vertical");
 
-        if (inputX > 0)
-        {
-            animator.SetInteger("Direction", 0);
-        }
-        else if (inputX < 0)
-        {
-            animator.SetInteger("Direction", 1);
-        }
+      	//touch controls  -------------------------------------
+      	if(touchControlsEnabled)
+      	{
+      		if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Moved)
+    	    {
+      	     var touchDeltaPosition : Vector2 = Input.GetTouch(0).deltaPosition;
+      	  	 var touchInputX : float = (touchDeltaPosition.x * panSpeed)/8;
+      			 var touchInputY : float = (touchDeltaPosition.y * panSpeed)/8;
 
-        movement = Vector2(
-          speed.x * inputX,
-          speed.y * inputY);
-        //end keyboard controlls -----------------------------
+             if (touchInputX > 0)
+             {
+               animator.SetInteger("Direction", 0);
+             }
+             else if (touchInputX < 0)
+             {
+               animator.SetInteger("Direction", 1);
+             }
+
+      			 movement = Vector2(
+      			      speed.x * touchInputX,
+      			      speed.y * touchInputY);
+    	    }
+
+
+      	    //end touch controlls -------------------------------
+      	} else {
+          //keyboard controlls-------------------------------------
+          if (inputX > 0)
+          {
+            animator.SetInteger("Direction", 0);
+          }
+          else if (inputX < 0)
+          {
+            animator.SetInteger("Direction", 1);
+          }
+
+          movement = Vector2(
+            speed.x * inputX,
+            speed.y * inputY);
+            //end keyboard controlls -----------------------------
+        }
     }
+
+
 }
 
 function TakeDamage (amount : int){

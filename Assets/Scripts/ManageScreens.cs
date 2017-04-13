@@ -10,7 +10,7 @@ public class ManageScreens : MonoBehaviour {
     public void Start() {
       //unlock level 1 if we haven't unlocked anything yet
       int maxLevelUnlocked = PlayerPrefs.GetInt("maxLevelUnlocked");
-      if(maxLevelUnlocked == "" || maxLevelUnlocked == 0) {
+      if(maxLevelUnlocked <= 0) {
         PlayerPrefs.SetInt("maxLevelUnlocked", 1);
       }
 
