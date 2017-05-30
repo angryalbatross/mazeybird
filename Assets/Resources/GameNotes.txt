@@ -1,5 +1,6 @@
 TODOS:
 -Get video ads running as a way to earn gold - need alison's help to install
+-Need to install android build
 -Make new levels (maybe 48 to start, 12 per season - then could make new ones for year 2/3 etc...)
 -Redo all sprites
 -Create different backgrounds for different seasons
