@@ -7,7 +7,7 @@ private var activated : boolean = false;
 
 function FixedUpdate () {
 	if(activated)
-		this.gameObject.Transform.position = Vector2.MoveTowards(this.gameObject.Transform.position, endLocation.Transform.position);
+		this.gameObject.Transform.position = Vector2.MoveTowards(this.gameObject.Transform.position.Vector2, endLocation.Transform.position.Vector2, mySpeed);
 }
 
 function Update () {

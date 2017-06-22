@@ -20,7 +20,6 @@ private var rb : Rigidbody2D;
 private var movement : Vector2;
 private var animator : Animator;
 private var controlsEnabled : boolean = true;
-private var isStart : boolean = true;
 
 function Start () {
   animator = animationController.GetComponent.<Animator>();
@@ -149,11 +148,7 @@ function showMap() {
   mapCamera.SetActive(true);
   mainCamera.SetActive(false);
   // show the hide map button
-  if(isStart) {
-    startButton.SetActive(true);
-  } else {
-    mapOffButton.SetActive(true);
-  }
+  mapOffButton.SetActive(true);
   mapOnButton.SetActive(false);
 
   GetComponent.<Rigidbody2D>().gravityScale = 0;
@@ -163,12 +158,7 @@ function hideMap() {
   GetComponent.<Rigidbody2D>().gravityScale = 2;
   //swap map buttons
   mapOnButton.SetActive(true);
-  if(isStart) {
-    startButton.SetActive(false);
-  } else {
-    mapOffButton.SetActive(false);
-  }
-  isStart = false;
+  mapOffButton.SetActive(false);
   //swap cameras
   mainCamera.SetActive(true);
   mapCamera.SetActive(false);
