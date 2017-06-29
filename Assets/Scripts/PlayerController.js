@@ -55,6 +55,8 @@ function Update()
       			 movement = Vector2(
       			      speed.x * touchInputX,
       			      speed.y * touchInputY);
+    	    } else { //don't move unless being touched
+    	    	movement = Vector2(0,0);
     	    }
 
 

@@ -6,8 +6,9 @@ var endLocation : GameObject;
 private var activated : boolean = false;
 
 function FixedUpdate () {
-	if(activated)
-		this.gameObject.Transform.position = Vector2.MoveTowards(this.gameObject.Transform.position.Vector2, endLocation.Transform.position.Vector2, mySpeed);
+	if(activated){
+		//this.gameObject.transform.position = Vector2.MoveTowards(this.gameObject.transform.position.Vector2, endLocation.transform.position.Vector2, mySpeed);
+	}
 }
 
 function Update () {
@@ -24,5 +25,5 @@ function activate() {
 
 function deactivate() {
 	activated = false;
-	this.gameObject.Transform.Position = startLocation.Transform.Position;
+	this.gameObject.transform.position = startLocation.transform.position;
 }
