@@ -1,9 +1,13 @@
 TODOS:
 -Get video ads running as a way to earn gold - need alison's help to install
--Need to install android build
 -Make new levels (maybe 48 to start, 12 per season - then could make new ones for year 2/3 etc...)
 -Redo all sprites
--Create different backgrounds for different seasons
+-Create different ways for the bird to interact with the environment
+--switches that the bird can flip
+--torches the bird can pick up to light fire to stuff
+--bugs the bird can eat to regain health?
+--bigger animals that try to eat the bird?
+--fireballs you have to outrun? 
 -Play cute feeding animation when you return to the nest -?
 
 ------------------------------------------------------------

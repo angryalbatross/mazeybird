@@ -4,12 +4,12 @@ public var linkedObjects : GameObject[];
 private var activated : boolean = false;
 
 function OnCollisionEnter2D(coll : Collision2D) {
-	if (coll.gameObject.tag == "player")
+	if (coll.gameObject.tag == "Player")
     {
     	if(activated) {
-    		//we are already activated so deactivate this trap/door/object	
+    		//we are already activated so deactivate this trap/door/object
     		deactivateGameObjects();
-    	} else { 
+    	} else {
     		//we are deactivated so we must be activated
     		activateGameObjects();
     	}

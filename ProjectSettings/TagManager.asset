@@ -7,6 +7,7 @@ TagManager:
   - gold
   - thornWall
   - nest
+  - switch
   layers:
   - Default
   - TransparentFX
