@@ -5,9 +5,7 @@ var spotLightEnabled : boolean = false;
 var health : int = 100;
 var mainCamera : GameObject;
 var mapCamera : GameObject;
-var mapOnButton : GameObject;
 var mapOffButton : GameObject;
-var startButton : GameObject;
 var animationController : GameObject;
 var deadSprite : GameObject;
 var totalMoney : int;
@@ -151,7 +149,6 @@ function showMap() {
   mainCamera.SetActive(false);
   // show the hide map button
   mapOffButton.SetActive(true);
-  mapOnButton.SetActive(false);
 
   GetComponent.<Rigidbody2D>().gravityScale = 0;
 }
@@ -159,7 +156,6 @@ function showMap() {
 function hideMap() {
   GetComponent.<Rigidbody2D>().gravityScale = 2;
   //swap map buttons
-  mapOnButton.SetActive(true);
   mapOffButton.SetActive(false);
   //swap cameras
   mainCamera.SetActive(true);
