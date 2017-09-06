@@ -25,7 +25,10 @@ public class AdManager : MonoBehaviour
         // Give coins etc.
         var currentMaxLevel = PlayerPrefs.GetInt("maxLevelUnlocked");
         var currentMoney = PlayerPrefs.GetInt("gold");
-        PlayerPrefs.SetInt("gold", currentMoney + 10 + (2 * currentMaxLevel));
+    		var currentLives = PlayerPrefs.GetInt("lives");
+    		PlayerPrefs.SetInt("gold", currentMoney + 10 + (2 * currentMaxLevel));
+    		PlayerPrefs.SetInt("lives", currentLives + 1);
+        PlayerPrefs.SetString("lastAdDate", DateTime.UtcNow.ToString);
         break;
       case ShowResult.Skipped:
         Debug.Log("The ad was skipped before reaching the end.");

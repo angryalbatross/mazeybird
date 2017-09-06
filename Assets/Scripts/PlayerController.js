@@ -20,6 +20,11 @@ private var animator : Animator;
 private var controlsEnabled : boolean = true;
 
 function Start () {
+  var initialLoad = PlayerPrefs.GetInt("initialLoad");
+  if(initialLoad == 0) {
+    //Flag the first time the player loads the game.
+    PlayerPrefs.SetInt("initialLoad", 1);
+  }
   animator = animationController.GetComponent.<Animator>();
 	rb = this.GetComponent.<Rigidbody2D>();
 	totalMoney = 0;
