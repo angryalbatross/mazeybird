@@ -11,6 +11,7 @@ var deadSprite : GameObject;
 var totalMoney : int;
 var youDied : GameObject;
 var youWon : GameObject;
+var youRanOutOfLives : GameObject;
 var panSpeed : float = 3F;
 var touchControlsEnabled = false;
 private var isInvincible : boolean = false;
@@ -18,6 +19,7 @@ private var rb : Rigidbody2D;
 private var movement : Vector2;
 private var animator : Animator;
 private var controlsEnabled : boolean = true;
+private var lives : int;
 
 function Start () {
   var initialLoad = PlayerPrefs.GetInt("initialLoad");
@@ -25,6 +27,7 @@ function Start () {
     //Flag the first time the player loads the game.
     PlayerPrefs.SetInt("initialLoad", 1);
   }
+  lives = PlayerPrefs.GetInt('lives');
   animator = animationController.GetComponent.<Animator>();
 	rb = this.GetComponent.<Rigidbody2D>();
 	totalMoney = 0;
@@ -116,12 +119,21 @@ function YouWin () {
 }
 
 function YouLose () {
-    youDied.SetActive(true);
     deadSprite.SetActive(true);
     animationController.SetActive(false);
     controlsEnabled = false;
-    Debug.Log("You Lost :( :( :(");
     isInvincible = true;
+    lives -= 1;
+    if(lives == 0) {
+      //the player is out of lives and needs to wait 24 hours or watch an ad!
+      youRanOutOfLives.SetActive(true);
+      PlayerPrefs.SetInt('lives', lives);
+      PlayerPrefs.SetString("lastLifeLostDate", System.DateTime.Now.ToString());
+    } else {
+      //show 'you died' menu so user can reset the level
+      youDied.SetActive(true);
+      PlayerPrefs.SetInt('lives', lives);
+    }
 }
 
 

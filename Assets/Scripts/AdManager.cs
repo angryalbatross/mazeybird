@@ -4,6 +4,7 @@ using UnityEngine.Advertisements;
 #endif
 public class AdManager : MonoBehaviour
 {
+  public GameObject MainMenu;
   #if UNITY_ADS
   public void ShowRewardedAd()
   {
@@ -24,17 +25,20 @@ public class AdManager : MonoBehaviour
         // YOUR CODE TO REWARD THE GAMER
         // Give coins etc.
         var currentMaxLevel = PlayerPrefs.GetInt("maxLevelUnlocked");
-        var currentMoney = PlayerPrefs.GetInt("gold");
+        // var currentMoney = PlayerPrefs.GetInt("gold");
     		var currentLives = PlayerPrefs.GetInt("lives");
-    		PlayerPrefs.SetInt("gold", currentMoney + 10 + (2 * currentMaxLevel));
+    		// PlayerPrefs.SetInt("gold", currentMoney + 10 + (2 * currentMaxLevel));
     		PlayerPrefs.SetInt("lives", currentLives + 1);
         PlayerPrefs.SetString("lastAdDate", DateTime.UtcNow.ToString);
+        MainMenu.SetActive(true);
         break;
       case ShowResult.Skipped:
         Debug.Log("The ad was skipped before reaching the end.");
+        MainMenu.SetActive(true);
         break;
       case ShowResult.Failed:
         Debug.LogError("The ad failed to be shown.");
+        MainMenu.SetActive(true);
         break;
     }
   }

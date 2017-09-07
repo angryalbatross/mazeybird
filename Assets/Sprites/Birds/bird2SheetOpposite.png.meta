@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 88af814d1cd049e44862aeda558f8bf3
-timeCreated: 1503456635
+timeCreated: 1504750266
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -81,6 +81,14 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -88,10 +96,10 @@ TextureImporter:
       name: bird2SheetOpposite_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 516
+        x: 0
+        y: 529.3334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -101,10 +109,10 @@ TextureImporter:
       name: bird2SheetOpposite_1
       rect:
         serializedVersion: 2
-        x: 297
-        y: 518
+        x: 268
+        y: 529.3334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,10 +122,10 @@ TextureImporter:
       name: bird2SheetOpposite_2
       rect:
         serializedVersion: 2
-        x: 544
-        y: 518
+        x: 536
+        y: 529.3334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,10 +135,10 @@ TextureImporter:
       name: bird2SheetOpposite_3
       rect:
         serializedVersion: 2
-        x: 812
-        y: 511
+        x: 804
+        y: 529.3334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,9 +149,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1072
-        y: 511
+        y: 529.3334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +161,10 @@ TextureImporter:
       name: bird2SheetOpposite_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 266
+        x: 268
+        y: 265.33334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,10 +174,10 @@ TextureImporter:
       name: bird2SheetOpposite_6
       rect:
         serializedVersion: 2
-        x: 274
-        y: 252
+        x: 536
+        y: 265.33334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,10 +187,10 @@ TextureImporter:
       name: bird2SheetOpposite_7
       rect:
         serializedVersion: 2
-        x: 550
-        y: 245
+        x: 804
+        y: 265.33334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +200,10 @@ TextureImporter:
       name: bird2SheetOpposite_8
       rect:
         serializedVersion: 2
-        x: 831
-        y: 247
+        x: 1072
+        y: 265.33334
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +213,10 @@ TextureImporter:
       name: bird2SheetOpposite_9
       rect:
         serializedVersion: 2
-        x: 1072
-        y: 252
+        x: 536
+        y: 1.3333435
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +226,10 @@ TextureImporter:
       name: bird2SheetOpposite_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2
+        x: 804
+        y: 1.3333435
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -231,49 +239,10 @@ TextureImporter:
       name: bird2SheetOpposite_11
       rect:
         serializedVersion: 2
-        x: 268
-        y: 2
-        width: 268
-        height: 264
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: bird2SheetOpposite_12
-      rect:
-        serializedVersion: 2
-        x: 550
-        y: 0
-        width: 268
-        height: 264
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: bird2SheetOpposite_13
-      rect:
-        serializedVersion: 2
-        x: 804
-        y: 2
-        width: 268
-        height: 264
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: bird2SheetOpposite_14
-      rect:
-        serializedVersion: 2
         x: 1072
-        y: 2
+        y: 1.3333435
         width: 268
-        height: 264
+        height: 264.66666
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

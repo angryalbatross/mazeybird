@@ -8,11 +8,13 @@ public class LoadSceneOnClick : MonoBehaviour {
     public GameObject notEnoughGoldAlert;
     public GameObject unlockPreviousLevelAlert;
     public GameObject unlockedLevelImage;
+    public GameObject watchAdOrWaitAlert;
     //public GameObject gold;
     public int goldTillUnlocked = 0;
     public int thisLevelNumber = 0;
     public bool levelIsUnlocked = false;
     private int maxLevelUnlocked = 0;
+    private int lives = 0;
 
     public void Start () {
       maxLevelUnlocked = PlayerPrefs.GetInt("maxLevelUnlocked");
@@ -23,14 +25,20 @@ public class LoadSceneOnClick : MonoBehaviour {
         }
         levelIsUnlocked = true;
       }
+      lives = PlayerPrefs.GetInt("lives");
     }
 
     public void LoadByIndex(int sceneIndex)
     {
         var currentMoney = PlayerPrefs.GetInt("gold");
         if(levelIsUnlocked) {
-          // load the level
-          SceneManager.LoadScene (sceneIndex);
+          // load the level if the player has enough lives
+          if(lives > 0){
+            SceneManager.LoadScene (sceneIndex);
+          } else {
+            //show alert to the user
+            watchAdOrWaitAlert.SetActive(true);
+          }
         } else {
           //first check to make sure the previous level has been unlocked
           if (PlayerPrefs.GetInt("maxLevelUnlocked") >= thisLevelNumber - 1) {
