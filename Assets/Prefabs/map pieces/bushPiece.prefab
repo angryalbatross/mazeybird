@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4311232939947632}
   - component: {fileID: 212871270228296122}
   - component: {fileID: 50753911020365886}
-  - component: {fileID: 60934554521279756}
+  - component: {fileID: 60851490813009300}
   m_Layer: 0
   m_Name: bushPiece
   m_TagString: thornWall
@@ -35,8 +35,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912872370647912}
-  m_LocalRotation: {x: -0, y: -0, z: -0.64442015, w: 0.7646717}
-  m_LocalPosition: {x: 6.86, y: -27.59, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 20.5, y: -29.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &60934554521279756
+--- !u!60 &60851490813009300
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
