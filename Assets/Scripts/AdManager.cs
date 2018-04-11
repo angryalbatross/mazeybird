@@ -29,7 +29,7 @@ public class AdManager : MonoBehaviour
     		var currentLives = PlayerPrefs.GetInt("lives");
     		// PlayerPrefs.SetInt("gold", currentMoney + 10 + (2 * currentMaxLevel));
     		PlayerPrefs.SetInt("lives", currentLives + 1);
-        PlayerPrefs.SetString("lastAdDate", DateTime.UtcNow.ToString);
+        PlayerPrefs.SetString("lastAdDate", System.DateTime.Now.ToString("mm/dd/yyyy HH:mm:ss"));
         MainMenu.SetActive(true);
         break;
       case ShowResult.Skipped:
