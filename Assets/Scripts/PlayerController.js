@@ -145,10 +145,8 @@ function OnCollisionEnter2D(coll : Collision2D) {
     else if (coll.gameObject.tag == "nest")
         YouWin();
     else if (coll.gameObject.tag == "emptyNest")
+      //you shouldn't lose, you just should have to find the real one?
         YouLose();
-        //you shouldn't lose, you just should have to find the real one?
-    else 
-      Debug.Log("Collided with MapConnector: " + coll.gameObject.name);
   }
 
 function FixedUpdate()
