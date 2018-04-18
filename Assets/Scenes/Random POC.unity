@@ -524,6 +524,10 @@ Prefab:
       propertyPath: m_Name
       value: RandomBlock5
       objectReference: {fileID: 0}
+    - target: {fileID: 1648040712902860, guid: 8790195a7658e6c4fa498f2c31a19155, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8790195a7658e6c4fa498f2c31a19155, type: 2}
   m_IsPrefabParent: 0
@@ -553,7 +557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ab25de578154868ae747874dee760e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomBlocks: {fileID: 416996244}
+  randomBlockHolder: {fileID: 416996244}
 --- !u!58 &1378858654
 CircleCollider2D:
   m_ObjectHideFlags: 0
