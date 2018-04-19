@@ -19,12 +19,27 @@ function Update () {
 	
 }
 
-function OnCollisionEnter2D(coll : Collision2D) {
-    Debug.Log(coll.gameObject.name);
+function OnTriggerEnter2D(coll : Collider2D) {
+    if (coll.gameObject.tag == 'MapConnector') {
+        Debug.Log(coll.gameObject.name);
+        getNewBlockOffset(coll.gameObject.name);
 
+        var blockToAdd : GameObject = randomBlocks[Random.Range(0,randomBlocks.length - 1)];
+        var newBlock = Instantiate(blockToAdd, coll.gameObject.transform.position, coll.gameObject.transform.rotation);
+        newBlock.SetActive(true);
+        Destroy(coll.gameObject);
+    }
+}
 
+function getNewBlockOffset(connectorName : String) {
+    var nameArray : String[];
+    nameArray = connectorName.Split("_"[0]);
+    Debug.Log(nameArray[0]);
+
+    switch (nameArray[1]) {
+    }
+}
 
     // var thisBlock = [Random.Range(0,arrayOfBlocks.length - 1)];
     // Instantiate(thisBlock, coll.gameObject.transform);
-}
     
