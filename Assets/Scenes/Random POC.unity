@@ -402,6 +402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomBlockHolder: {fileID: 1408899733942968, guid: 63634ed1c59e84b4bbed6406bd1c0fdd,
     type: 2}
+  currentOppositeMapConnector: none
 --- !u!58 &1378858654
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -529,6 +530,26 @@ Prefab:
     - target: {fileID: 61448451940211450, guid: 8790195a7658e6c4fa498f2c31a19155,
         type: 2}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1648040712902860, guid: 8790195a7658e6c4fa498f2c31a19155, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794949383519810, guid: 8790195a7658e6c4fa498f2c31a19155, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1497613326349962, guid: 8790195a7658e6c4fa498f2c31a19155, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1656405244514368, guid: 8790195a7658e6c4fa498f2c31a19155, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1958866843414304, guid: 8790195a7658e6c4fa498f2c31a19155, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
