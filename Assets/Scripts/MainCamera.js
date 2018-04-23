@@ -27,12 +27,14 @@ function OnTriggerEnter2D(coll : Collider2D) {
             
             var blockToAdd : GameObject = randomBlocks[Random.Range(0,randomBlocks.length - 1)];
             var blockToAddOffset : Hashtable = getNewBlockOffset(coll.name);
+            var blockToAddPostion : Vector3 = blockToAddOffset['blockPosition'];
 
-            var newBlock = Instantiate(blockToAdd, blockToAddOffset['blockPosition'], coll.gameObject.transform.rotation);
+            var newBlock = Instantiate(blockToAdd, coll.gameObject.transform.position + blockToAddPostion, coll.gameObject.transform.rotation);
         } 
 
         // Destroy collider so it doesn't trigger again
         Destroy(coll.gameObject);
+        Debug.Break();
     } 
 
 }
@@ -45,19 +47,19 @@ function getNewBlockOffset(connectorName : String) : Hashtable {
     var blockPosition : Vector3;
     switch (nameArray[1]) {
         case 'bot':
-            blockPosition = Vector3(0.0, -20.0);
+            blockPosition = Vector3(0.0, -10.0);
             resultHash.Add('opposite', 'top');
             break;
         case 'top':
-            blockPosition = Vector3(0.0, 20.0);
+            blockPosition = Vector3(0.0, 10.0);
             resultHash.Add('opposite', 'bot');
             break;
         case 'left':
-            blockPosition = Vector3(-20.0, 0.0);
+            blockPosition = Vector3(-10.0, 0.0);
             resultHash.Add('opposite', 'right');
             break;
         case 'right':
-            blockPosition = Vector3(20.0, 0.0);
+            blockPosition = Vector3(10.0, 0.0);
             resultHash.Add('opposite', 'left');
             break;
         }
