@@ -1,18 +1,42 @@
 ﻿#pragma strict
 
 public var randomBlockHolder : GameObject;
+public var MapConnector_top_left : GameObject[];
+public var MapConnector_top_mid : GameObject[];
+public var MapConnector_top_right : GameObject[];
+public var MapConnector_bot_left: GameObject[];
+public var MapConnector_bot_mid : GameObject[];
+public var MapConnector_bot_right : GameObject[];
+public var MapConnector_right_top : GameObject[];
+public var MapConnector_right_mid : GameObject[];
+public var MapConnector_right_bot : GameObject[];
+public var MapConnector_left_top : GameObject[];
+public var MapConnector_left_mid : GameObject[];
+public var MapConnector_left_bot : GameObject[];
 var randomBlocks = new Array();
-var currentOppositeMapConnector : String = "none";
+public var blocksToConnectorsMap : Hashtable;
+private var currentMapConnectorOpposite : String = "none";
+private var currentMapConnectorSecondDimension : String = "none";
 
 
 function Start () {
-    var childrenBlocks : Component[]; 
-    childrenBlocks = randomBlockHolder.GetComponentsInChildren(Transform, true);
-    for (var thisChild : Transform in childrenBlocks) {
-        if(thisChild.name.IndexOf("RandomBlock") >= 0) {
-            randomBlocks.Add(thisChild.gameObject);
-        }
-    }
+    var thisData : Hashtable = new Hashtable();
+    var holderChildren : Transform[] = randomBlockHolder.GetComponentsInChildren.<Transform>(true);
+    
+    // for (var thisBlock : Transform in holderChildren) {
+    //     if(thisBlock.tag == 'MapBlock') {
+    //         Debug.Log('This block: ' + thisBlock.name);
+    //         var mapConnectors : Transform[] = thisBlock.GetComponentsInChildren.<Transform>(true);
+    //         var mapConnectorNames = new Array();
+    //         for (var thisConnector : Transform in mapConnectors) {
+    //             if(thisConnector.tag == 'MapConnector') {
+    //                 Debug.Log('This connector name: ' + thisConnector.name);
+    //                 Debug.Log('This connector tag: ' + thisConnector.tag);
+    //                 mapConnectorNames.Push(thisConnector.name);
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 function Update () {
@@ -21,11 +45,11 @@ function Update () {
 
 function OnTriggerEnter2D(coll : Collider2D) {
     if (coll.gameObject.tag == 'MapConnector') {
-        if(coll.name.IndexOf('MapConnector_' + currentOppositeMapConnector  + '_') < 0) {
+        if(coll.name.IndexOf('MapConnector_' + currentMapConnectorOpposite  + '_') < 0) {
             Debug.Log('Triggered: ' + coll.name);
-            Debug.Log('Index of opposite: ' + coll.name.IndexOf('MapConnector_' + currentOppositeMapConnector  + '_'));
+            Debug.Log('Index of opposite: ' + coll.name.IndexOf('MapConnector_' + currentMapConnectorOpposite  + '_'));
             
-            var blockToAdd : GameObject = randomBlocks[Random.Range(0,randomBlocks.length - 1)];
+            var blockToAdd : GameObject = getBlockWithMatchingConnector(coll.name);
             var blockToAddOffset : Hashtable = getNewBlockOffset(coll.name);
             var blockToAddPostion : Vector3 = blockToAddOffset['blockPosition'];
 
@@ -64,8 +88,17 @@ function getNewBlockOffset(connectorName : String) : Hashtable {
             break;
         }
     resultHash.Add('blockPosition', blockPosition);
-    currentOppositeMapConnector = resultHash['opposite'];
-    Debug.Log('Current Opposite: ' + currentOppositeMapConnector);
+    currentMapConnectorSecondDimension = nameArray[2];
+    currentMapConnectorOpposite = resultHash['opposite'];
+    Debug.Log('Current Opposite: ' + currentMapConnectorOpposite);
     return resultHash;
+}
+
+function getBlockWithMatchingConnector(connectorName : String) : GameObject {
+    var newBlock : GameObject;
+    var foundMatch : System.Boolean = false;
+    // newBlock =  [Random.Range(0,randomBlocks.length - 1)];
+    foundMatch = true;
+
 }
     
