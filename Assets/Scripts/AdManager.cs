@@ -24,17 +24,14 @@ public class AdManager : MonoBehaviour
         //
         // YOUR CODE TO REWARD THE GAMER
         // Give coins etc.
-        var currentMaxLevel = PlayerPrefs.GetInt("maxLevelUnlocked");
-        // var currentMoney = PlayerPrefs.GetInt("gold");
     		var currentLives = PlayerPrefs.GetInt("lives");
-    		// PlayerPrefs.SetInt("gold", currentMoney + 10 + (2 * currentMaxLevel));
     		PlayerPrefs.SetInt("lives", currentLives + 1);
-        PlayerPrefs.SetString("lastAdDate", System.DateTime.Now.ToString("mm/dd/yyyy HH:mm:ss"));
         MainMenu.SetActive(true);
         break;
       case ShowResult.Skipped:
         Debug.Log("The ad was skipped before reaching the end.");
-        MainMenu.SetActive(true);
+        // MainMenu.SetActive(true);
+        WatchEntireAdAlert.SetActive(true);
         break;
       case ShowResult.Failed:
         Debug.LogError("The ad failed to be shown.");
