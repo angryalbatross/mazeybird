@@ -10,11 +10,18 @@ function Awake() {
   var spriteSize = spriteRenderer.sprite.bounds.size;
 
 	var scale = transform.localScale;
+	Debug.Log(scale);
+		Debug.Log(cameraSize.x);
+		Debug.Log(cameraSize.y);
+
+			Debug.Log(spriteSize.x);
+			Debug.Log(spriteSize.y);
 	if(cameraSize.x >= cameraSize.y) {
 		scale *= cameraSize.x / spriteSize.x;
 	} else {
 		scale *= cameraSize.y / spriteSize.y;
 	}
-	
+	Debug.Log(scale);
+
 	transform.localScale = scale;
 }
