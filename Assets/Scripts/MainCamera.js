@@ -1,27 +1,29 @@
 ﻿#pragma strict
 
-public var randomBlockHolder : GameObject;
 public var MapConnector_top_left : GameObject[];
 public var MapConnector_top_mid : GameObject[];
 public var MapConnector_top_right : GameObject[];
 public var MapConnector_bot_left: GameObject[];
 public var MapConnector_bot_mid : GameObject[];
 public var MapConnector_bot_right : GameObject[];
-public var MapConnector_right_top : GameObject[];
 public var MapConnector_right_mid : GameObject[];
-public var MapConnector_right_bot : GameObject[];
-public var MapConnector_left_top : GameObject[];
 public var MapConnector_left_mid : GameObject[];
-public var MapConnector_left_bot : GameObject[];
-var randomBlocks = new Array();
-public var blocksToConnectorsMap : Hashtable;
+public var blocksToConnectorsMap : Hashtable = new Hashtable();
+blocksToConnectorsMap['MapConnector_top_left'] = MapConnector_top_left;
+blocksToConnectorsMap['MapConnector_top_mid'] = MapConnector_top_mid;
+blocksToConnectorsMap['MapConnector_top_right'] = MapConnector_top_right;
+blocksToConnectorsMap['MapConnector_bot_left'] = MapConnector_bot_left;
+blocksToConnectorsMap['MapConnector_bot_mid'] = MapConnector_bot_mid;
+blocksToConnectorsMap['MapConnector_bot_right'] = MapConnector_bot_right;
+blocksToConnectorsMap['MapConnector_right_mid'] = MapConnector_right_mid;
+blocksToConnectorsMap['MapConnector_left_mid'] = MapConnector_left_mid;
 private var currentMapConnectorOpposite : String = "none";
 private var currentMapConnectorSecondDimension : String = "none";
 
 
 function Start () {
-    var thisData : Hashtable = new Hashtable();
-    var holderChildren : Transform[] = randomBlockHolder.GetComponentsInChildren.<Transform>(true);
+    // var thisData : Hashtable = new Hashtable();
+    // var holderChildren : Transform[] = randomBlockHolder.GetComponentsInChildren.<Transform>(true);
     
     // for (var thisBlock : Transform in holderChildren) {
     //     if(thisBlock.tag == 'MapBlock') {
@@ -49,10 +51,10 @@ function OnTriggerEnter2D(coll : Collider2D) {
             Debug.Log('Triggered: ' + coll.name);
             Debug.Log('Index of opposite: ' + coll.name.IndexOf('MapConnector_' + currentMapConnectorOpposite  + '_'));
             
-            var blockToAdd : GameObject = getBlockWithMatchingConnector(coll.name);
             var blockToAddOffset : Hashtable = getNewBlockOffset(coll.name);
             var blockToAddPostion : Vector3 = blockToAddOffset['blockPosition'];
-
+            var blockToAdd : GameObject = getBlockWithMatchingConnector(coll.name);
+            
             var newBlock = Instantiate(blockToAdd, coll.gameObject.transform.position + blockToAddPostion, coll.gameObject.transform.rotation);
         } 
 
@@ -95,10 +97,9 @@ function getNewBlockOffset(connectorName : String) : Hashtable {
 }
 
 function getBlockWithMatchingConnector(connectorName : String) : GameObject {
-    var newBlock : GameObject;
-    var foundMatch : System.Boolean = false;
-    // newBlock =  [Random.Range(0,randomBlocks.length - 1)];
-    foundMatch = true;
-
+    Debug.Log('getBlockWithMatchingConnector: ' + connectorName);
+    var thisConnectorOptions : GameObject[] = blocksToConnectorsMap[connectorName];
+    Debug.Log('thisConnectorOptions.length: ' + thisConnectorOptions.length);
+    return thisConnectorOptions[Random.Range(0, thisConnectorOptions.length - 1)];
 }
     
