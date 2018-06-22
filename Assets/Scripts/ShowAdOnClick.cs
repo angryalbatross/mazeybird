@@ -16,6 +16,11 @@ public class ShowAdOnClick : MonoBehaviour {
 			PlayerPrefs.SetInt("lives", currentLives + 1);
 			Debug.Log("You Watched an Advertisement");
 			MainMenu.SetActive(true);
+		#elif UNITY_WEBGL
+			var currentLives = PlayerPrefs.GetInt("lives");
+			PlayerPrefs.SetInt("lives", currentLives + 1);
+			Debug.Log("You Watched an Advertisement");
+			MainMenu.SetActive(true);
 		#else
 			AdManager.SendMessage("ShowRewardedAd", SendMessageOptions.DontRequireReceiver);
 		#endif
