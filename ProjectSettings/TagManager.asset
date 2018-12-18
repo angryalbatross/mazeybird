@@ -10,6 +10,7 @@ TagManager:
   - switch
   - MapConnector
   - MapBlock
+  - FireEffects
   layers:
   - Default
   - TransparentFX
