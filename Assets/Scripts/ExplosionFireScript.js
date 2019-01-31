@@ -28,13 +28,16 @@ function FixedUpdate () {
 }
 
 function OnTriggerStay2D (coll : Collider2D) {
+	if(coll.gameObject.tag != 'MainCamera')
+		Debug.Log('Object was ' + coll.gameObject.tag);
     if (coll.gameObject.tag == "Player")
 		{
-			// coll.gameObject.SendMessage("TakeDamage", 5.0);
+			// coll.gameObject.SendMessage("TakeDamage", 1.0);
 			Debug.Log('Player took 5 damage!');
 		}
 		if (coll.gameObject.tag == "FireEffects")
 		{
+			Debug.Log('Light a fire!');
 			// SpriteRend = coll.gameObject.GetComponent<SpriteRenderer>();
 			// SpriteRend.enabled = true;
 		}
