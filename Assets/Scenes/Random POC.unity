@@ -2319,7 +2319,6 @@ GameObject:
   - component: {fileID: 1378754290}
   - component: {fileID: 1378754294}
   - component: {fileID: 1378754293}
-  - component: {fileID: 1378754292}
   - component: {fileID: 1378754291}
   m_Layer: 0
   m_Name: MapCamera
@@ -2387,7 +2386,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1378754288}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32766fb9c9b52e546a72801d39abdcd0, type: 3}
   m_Name: 
@@ -2395,14 +2394,6 @@ MonoBehaviour:
   startMarker: {fileID: 1301111297}
   endMarker: {fileID: 1966777943}
   speed: 5
---- !u!81 &1378754292
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 81022621935683976, guid: 8c298023034cacb4cae5359f9b1aa842,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1378754288}
-  m_Enabled: 1
 --- !u!92 &1378754293
 Behaviour:
   m_ObjectHideFlags: 0
@@ -2837,6 +2828,7 @@ GameObject:
   - component: {fileID: 1618165539}
   - component: {fileID: 1618165538}
   - component: {fileID: 1618165536}
+  - component: {fileID: 1618165537}
   m_Layer: 5
   m_Name: Hide Map
   m_TagString: Untagged
@@ -2857,7 +2849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -2880,7 +2872,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 1618165537}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2897,6 +2889,33 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &1618165537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1618165535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.3803922, g: 0.3803922, b: 0.3803922, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
 --- !u!222 &1618165538
 CanvasRenderer:
   m_ObjectHideFlags: 0

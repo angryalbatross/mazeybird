@@ -171,6 +171,7 @@ function showMap() {
 }
 
 function hideMap() {
+  Debug.Log("Click");
   GetComponent.<Rigidbody2D>().gravityScale = 2;
   //swap map buttons
   mapOffButton.SetActive(false);
