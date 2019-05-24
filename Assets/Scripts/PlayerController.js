@@ -20,6 +20,7 @@ private var movement : Vector2;
 private var animator : Animator;
 private var controlsEnabled : boolean = true;
 private var lives : int;
+var onFire : int = 0;
 
 function Start () {
   var initialLoad = PlayerPrefs.GetInt("initialLoad");
@@ -156,6 +157,11 @@ function FixedUpdate()
   } else {
     GetComponent.<Rigidbody2D>().velocity = Vector2(0,0);
   }
+
+  if(onFire >= 1)
+  {
+    TakeDamage(1);
+  }
 }
 
 function showMap() {
@@ -181,3 +187,5 @@ function hideMap() {
   //turn on controlls
   controlsEnabled = true;
 }
+
+

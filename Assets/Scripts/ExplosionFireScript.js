@@ -1,44 +1,50 @@
 ﻿#pragma strict
 
-//From this tutorial https://youtu.be/-5MZLxbGHSM
-var explosion_delay : float = 1f;
-var explosion_speed : float = 1f;
+var fire_delay : float = 1f;
+var onFire : boolean = false;
+var player : GameObject = null;
+private var fireCounter : int = 0; //a counter to track if we have set the player on fire from this object
 
-var exploded : boolean = false;
-var explosion_radius : CircleCollider2D;
-
-function Start () {
-	explosion_radius = gameObject.GetComponent.<CircleCollider2D>();
-
-}
-
-function Update () {
-	explosion_delay -= Time.deltaTime;
-	if(explosion_delay < 0)
-		{
-			exploded = true;
-		}
-}
-
-function FixedUpdate () {
-	if (exploded == true)
+function FixedUpdate () 
+{
+	fire_delay -= Time.deltaTime;
+	if(!onFire && fire_delay <= 0)
 	{
-		explosion_radius.radius = explosion_radius.radius + explosion_speed;
+		onFire = true;
+	}
+
+	if(onFire){
+		//check if we are on fire, player is inside our trigger and we haven't already set them on fire
+		if(player != null && fireCounter == 0)
+		{
+			player.GetComponent.<PlayerController>().onFire += 1;
+			fireCounter += 1;
+		}
 	}
 }
 
-function OnTriggerStay2D (coll : Collider2D) {
-	if(coll.gameObject.tag != 'MainCamera')
-		Debug.Log('Object was ' + coll.gameObject.tag);
-    if (coll.gameObject.tag == "Player")
-		{
-			// coll.gameObject.SendMessage("TakeDamage", 1.0);
-			Debug.Log('Player took 5 damage!');
-		}
-		if (coll.gameObject.tag == "FireEffects")
-		{
-			Debug.Log('Light a fire!');
-			// SpriteRend = coll.gameObject.GetComponent<SpriteRenderer>();
-			// SpriteRend.enabled = true;
-		}
-  }
+function OnTriggerEnter2D(other: Collider2D)
+{
+	if(other.gameObject.tag == "Player")
+	{
+		player = other.gameObject;
+	}
+	if(onFire)
+    {
+			//set the player on fire
+			player.GetComponent.<PlayerController>().onFire += 1;
+			fireCounter += 1;
+    }
+}
+
+function OnTriggerExit2D(other: Collider2D)
+{
+    if(other.gameObject.tag == "Player")
+    {
+			if(onFire) {
+				player.GetComponent.<PlayerController>().onFire -= 1;
+				fireCounter -=1;
+			}
+		player = null;
+    }
+}

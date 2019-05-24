@@ -9,6 +9,7 @@ public var MapConnector_bot_right : GameObject[];
 public var MapConnector_right_mid : GameObject[];
 public var MapConnector_left_mid : GameObject[];
 public var blocksToConnectorsMap : Hashtable = new Hashtable();
+public var player : GameObject;
 blocksToConnectorsMap['MapConnector_top_left'] = MapConnector_top_left;
 blocksToConnectorsMap['MapConnector_top_mid'] = MapConnector_top_mid;
 blocksToConnectorsMap['MapConnector_top_right'] = MapConnector_top_right;
@@ -60,7 +61,7 @@ function OnTriggerEnter2D(coll : Collider2D) {
 
         // Destroy collider so it doesn't trigger again
         Destroy(coll.gameObject);
-        Debug.Break();
+        //Debug.Break();
     } 
 
 }
