@@ -20,6 +20,7 @@ private var movement : Vector2;
 private var animator : Animator;
 private var controlsEnabled : boolean = true;
 private var lives : int;
+var escaped : int = 1;
 var onFire : int = 0;
 
 function Start () {
@@ -94,7 +95,7 @@ function TakeDamage (amount : int){
     if(health - amount < 0)
       YouLose();
     else {
-      Debug.Log("you took some damage");
+      Debug.Log("you took "+ amount +" damage");
       health -= amount;
     }
   }
@@ -140,7 +141,7 @@ function YouLose () {
 
 function OnCollisionEnter2D(coll : Collision2D) {
     if (coll.gameObject.tag == "thornWall")
-        TakeDamage(20);
+        TakeDamage(200);
     else if (coll.gameObject.tag == "gold")
         GainMoney(1, coll.gameObject);
     else if (coll.gameObject.tag == "nest")
@@ -161,6 +162,14 @@ function FixedUpdate()
   if(onFire >= 1)
   {
     TakeDamage(1);
+    Debug.Log("You are on fire");
+  }
+  if(onFire <= 0)
+  {
+    Debug.Log("Safe!");
+  }
+  if(escaped <= 0){
+    YouWin();
   }
 }
 

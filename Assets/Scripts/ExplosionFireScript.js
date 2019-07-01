@@ -2,6 +2,7 @@
 
 var fire_delay : float = 1f;
 var onFire : boolean = false;
+var fireSpriteController : GameObject = null;
 var player : GameObject = null;
 private var fireCounter : int = 0; //a counter to track if we have set the player on fire from this object
 
@@ -11,6 +12,7 @@ function FixedUpdate ()
 	if(!onFire && fire_delay <= 0)
 	{
 		onFire = true;
+		fireSpriteController.SetActive(true);
 	}
 
 	if(onFire){
@@ -28,6 +30,7 @@ function OnTriggerEnter2D(other: Collider2D)
 	if(other.gameObject.tag == "Player")
 	{
 		player = other.gameObject;
+		player.GetComponent.<PlayerController>().escaped += 1;
 	}
 	if(onFire)
     {
@@ -41,10 +44,11 @@ function OnTriggerExit2D(other: Collider2D)
 {
     if(other.gameObject.tag == "Player")
     {
-			if(onFire) {
-				player.GetComponent.<PlayerController>().onFire -= 1;
-				fireCounter -=1;
-			}
+		player.GetComponent.<PlayerController>().escaped -= 1;
+		if(onFire) {
+			player.GetComponent.<PlayerController>().onFire -= 1;
+			fireCounter -=1;
+		}
 		player = null;
     }
 }
