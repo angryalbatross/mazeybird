@@ -14,15 +14,15 @@ public class LoadSceneOnClick : MonoBehaviour {
     // public int thisLevelNumber = 0;
     // public bool levelIsUnlocked = false;
     // private int maxLevelUnlocked = 0;
-    private int lives = 0;
+    private int currentLives = 0;
 
     public void Start () {
-      lives = PlayerPrefs.GetInt("lives");
     }
 
     public void LoadByIndex(int sceneIndex)
     {
-          if(lives > 0){
+          currentLives = PlayerPrefs.GetInt("lives");
+          if(sceneIndex == 0 || currentLives > 0){
             SceneManager.LoadScene (sceneIndex);
           } else {
             //show alert to the user

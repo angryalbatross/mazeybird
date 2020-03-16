@@ -34,6 +34,7 @@ public partial class ExplosionFireScript : MonoBehaviour
         {
             this.player = other.gameObject;
             this.player.GetComponent<PlayerController>().escaped = this.player.GetComponent<PlayerController>().escaped + 1;
+            Debug.Log("plus 1: Escape Value is " + this.player.GetComponent<PlayerController>().escaped);
         }
         if (this.onFire)
         {
@@ -48,6 +49,7 @@ public partial class ExplosionFireScript : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             this.player.GetComponent<PlayerController>().escaped = this.player.GetComponent<PlayerController>().escaped - 1;
+            Debug.Log("minus 1: Escape Value is " + this.player.GetComponent<PlayerController>().escaped);
             if (this.onFire)
             {
                 this.player.GetComponent<PlayerController>().onFire = this.player.GetComponent<PlayerController>().onFire - 1;

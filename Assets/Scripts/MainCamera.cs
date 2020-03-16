@@ -16,7 +16,7 @@ public partial class MainCamera : MonoBehaviour
     public GameObject player;
     private string currentMapConnectorOpposite;
     private string currentMapConnectorSecondDimension;
-    public virtual void Start()// }
+    public virtual void Start()
     {
         this.blocksToConnectorsMap["MapConnector_top_left"] = this.MapConnector_top_left;
         this.blocksToConnectorsMap["MapConnector_top_mid"] = this.MapConnector_top_mid;
@@ -32,7 +32,7 @@ public partial class MainCamera : MonoBehaviour
     {
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D coll)//Debug.Break();
+    public virtual void OnTriggerEnter2D(Collider2D coll)
     {
         if (coll.gameObject.tag == "MapConnector")
         {
@@ -61,15 +61,19 @@ public partial class MainCamera : MonoBehaviour
             case "bot":
                 blockPosition = new Vector3(0f, -10f);
                 resultHash.Add("opposite", "top");
+                break;
             case "top":
                 blockPosition = new Vector3(0f, 10f);
                 resultHash.Add("opposite", "bot");
+                break;
             case "left":
                 blockPosition = new Vector3(-10f, 0f);
                 resultHash.Add("opposite", "right");
+                break;
             case "right":
                 blockPosition = new Vector3(10f, 0f);
                 resultHash.Add("opposite", "left");
+                break;
         }
         resultHash.Add("blockPosition", blockPosition);
         this.currentMapConnectorSecondDimension = nameArray[2];

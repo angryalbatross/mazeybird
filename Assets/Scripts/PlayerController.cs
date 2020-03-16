@@ -41,7 +41,7 @@ public partial class PlayerController : MonoBehaviour
         this.showMap();
     }
 
-    public virtual void Update()//end keyboard controlls -----------------------------
+    public virtual void Update()
     {
         if (this.controlsEnabled && !this.isInvincible)
         {
@@ -104,7 +104,7 @@ public partial class PlayerController : MonoBehaviour
             }
             else
             {
-                Debug.Log(("you took " + amount) + " damage");
+                //Debug.Log(("you took " + amount) + " damage");
                 this.health = this.health - amount;
             }
         }
@@ -138,7 +138,8 @@ public partial class PlayerController : MonoBehaviour
         this.controlsEnabled = false;
         this.isInvincible = true;
         this.lives = this.lives - 1;
-        if (this.lives == 0)
+        Debug.Log("Lives = " + this.lives);
+        if (this.lives <= 0)
         {
             //the player is out of lives and needs to wait 24 hours or watch an ad!
             this.youRanOutOfLives.SetActive(true);
@@ -196,11 +197,11 @@ public partial class PlayerController : MonoBehaviour
         if (this.onFire >= 1)
         {
             this.TakeDamage(1);
-            Debug.Log("You are on fire");
+            //Debug.Log("You are on fire");
         }
         if (this.onFire <= 0)
         {
-            Debug.Log("Safe!");
+            //Debug.Log("Safe!");
         }
         if (this.escaped <= 0)
         {
@@ -239,7 +240,7 @@ public partial class PlayerController : MonoBehaviour
         this.health = 100;
         this.panSpeed = 3f;
         this.controlsEnabled = true;
-        this.escaped = 1;
+        this.escaped = 0;
     }
 
 }
