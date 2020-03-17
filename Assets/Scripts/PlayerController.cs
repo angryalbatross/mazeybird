@@ -26,6 +26,7 @@ public partial class PlayerController : MonoBehaviour
     private int lives;
     public int escaped;
     public int onFire;
+    public float win_delay;
     public virtual void Start()
     {
         int initialLoad = PlayerPrefs.GetInt("initialLoad");
@@ -186,6 +187,7 @@ public partial class PlayerController : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
+        this.win_delay = this.win_delay - Time.deltaTime;
         if (this.controlsEnabled)
         {
             this.GetComponent<Rigidbody2D>().velocity = this.movement;
@@ -203,7 +205,7 @@ public partial class PlayerController : MonoBehaviour
         {
             //Debug.Log("Safe!");
         }
-        if (this.escaped <= 0)
+        if (this.escaped <= 0 && this.win_delay <= 0)
         {
             this.YouWin();
         }
@@ -241,6 +243,7 @@ public partial class PlayerController : MonoBehaviour
         this.panSpeed = 3f;
         this.controlsEnabled = true;
         this.escaped = 0;
+        this.win_delay = 1f;
     }
 
 }

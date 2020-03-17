@@ -209,6 +209,16 @@ PrefabInstance:
       propertyPath: health
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 114681253171456106, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: escaped
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114681253171456106, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: win_delay
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 114894284056076120, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_Sprite
