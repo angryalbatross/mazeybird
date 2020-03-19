@@ -219,6 +219,11 @@ PrefabInstance:
       propertyPath: win_delay
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114681253171456106, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: touchControlsEnabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114894284056076120, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_Sprite
