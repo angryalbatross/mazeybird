@@ -5,8 +5,11 @@ using System.Collections;
 public partial class PlayerController : MonoBehaviour
 {
     public Vector2 speed;
+    public float touchMoveSpeed;
     public bool spotLightEnabled;
     public int health;
+    private float startTime;
+    private float journeyLength;
     public GameObject mainCamera;
     public GameObject mapCamera;
     public GameObject mapOffButton;
@@ -21,6 +24,7 @@ public partial class PlayerController : MonoBehaviour
     private bool isInvincible;
     private Rigidbody2D rb;
     private Vector2 movement;
+    private Vector2 touchDeltaPosition;
     private Animator animator;
     private bool controlsEnabled;
     private int lives;
@@ -29,6 +33,7 @@ public partial class PlayerController : MonoBehaviour
     public float win_delay;
     public virtual void Start()
     {
+        this.touchDeltaPosition = this.transform.position;
         int initialLoad = PlayerPrefs.GetInt("initialLoad");
         if (initialLoad == 0)
         {
@@ -39,6 +44,7 @@ public partial class PlayerController : MonoBehaviour
         this.animator = this.animationController.GetComponent<Animator>();
         this.rb = this.GetComponent<Rigidbody2D>();
         this.totalMoney = 0;
+        this.startTime = Time.time;
         this.showMap();
     }
 
@@ -48,32 +54,10 @@ public partial class PlayerController : MonoBehaviour
         {
             float inputX = Input.GetAxis("Horizontal");
             float inputY = Input.GetAxis("Vertical");
-            //touch controls  -------------------------------------
+            
             if (this.touchControlsEnabled)
             {
-                if ((Input.touchCount == 1) && (Input.GetTouch(0).phase == TouchPhase.Moved))
-                {
-                    Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-                    float touchInputX = (touchDeltaPosition.x * this.panSpeed) / 8;
-                    float touchInputY = (touchDeltaPosition.y * this.panSpeed) / 8;
-                    if (touchInputX > 0)
-                    {
-                        this.animator.SetInteger("Direction", 0);
-                    }
-                    else
-                    {
-                        if (touchInputX < 0)
-                        {
-                            this.animator.SetInteger("Direction", 1);
-                        }
-                    }
-                    this.movement = new Vector2(this.speed.x * touchInputX, this.speed.y * touchInputY);
-                }
-                else
-                {
-                     //don't move unless being touched
-                    this.movement = new Vector2(0, 0);
-                }
+                //do nothing
             }
             else
             {
@@ -105,7 +89,6 @@ public partial class PlayerController : MonoBehaviour
             }
             else
             {
-                //Debug.Log(("you took " + amount) + " damage");
                 this.health = this.health - amount;
             }
         }
@@ -188,14 +171,36 @@ public partial class PlayerController : MonoBehaviour
     public virtual void FixedUpdate()
     {
         this.win_delay = this.win_delay - Time.deltaTime;
-        if (this.controlsEnabled)
-        {
-            this.GetComponent<Rigidbody2D>().velocity = this.movement;
-        }
+        //touch controls  -------------------------------------
+            if (this.touchControlsEnabled)
+            {
+                if (Input.touchCount == 0)
+                {
+                    this.startTime = Time.time;
+                    touchDeltaPosition = mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.GetTouch(0).position);
+                    float touchInputX = (touchDeltaPosition.x );
+                    float touchInputY = (touchDeltaPosition.y );
+                    if (touchInputX > 0)
+                    {
+                        this.animator.SetInteger("Direction", 0);
+                    }
+                    else
+                    {
+                        if (touchInputX < 0)
+                        {
+                            this.animator.SetInteger("Direction", 1);
+                        }
+                    }
+                    this.journeyLength = Vector2.Distance(this.transform.position, touchDeltaPosition);
+                }
+            }
         else
         {
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
+        float distCovered = (Time.time - startTime) * touchMoveSpeed;
+        float fractionOfJourney = distCovered / this.journeyLength;
+        this.transform.position = Vector2.Lerp(this.transform.position, touchDeltaPosition, fractionOfJourney);
         if (this.onFire >= 1)
         {
             this.TakeDamage(1);

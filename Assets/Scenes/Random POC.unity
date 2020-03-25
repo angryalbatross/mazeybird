@@ -224,6 +224,16 @@ PrefabInstance:
       propertyPath: touchControlsEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114681253171456106, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: speed.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114681253171456106, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: speed.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114894284056076120, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_Sprite
@@ -238,7 +248,7 @@ PrefabInstance:
     - target: {fileID: 224736508147904582, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.000030517578
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 224736508147904582, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}

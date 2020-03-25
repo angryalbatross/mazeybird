@@ -5,6 +5,7 @@ using UnityEngine.Advertisements;
 public class AdManager : MonoBehaviour
 {
   public GameObject MainMenu;
+  public GameObject WatchEntireAdAlert;
   #if UNITY_ADS
   public void ShowRewardedAd()
   {
