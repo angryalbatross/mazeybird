@@ -613,6 +613,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 61544357007088368, guid: 3f3838b7713e94190820f59ed6db04cf,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 61544357007088368, guid: 3f3838b7713e94190820f59ed6db04cf,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 24
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f3838b7713e94190820f59ed6db04cf, type: 3}
 --- !u!1 &1618165535 stripped

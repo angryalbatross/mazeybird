@@ -171,48 +171,60 @@ public partial class PlayerController : MonoBehaviour
     public virtual void FixedUpdate()
     {
         this.win_delay = this.win_delay - Time.deltaTime;
-        //touch controls  -------------------------------------
-            if (this.touchControlsEnabled)
-            {
-                if (Input.touchCount == 0)
+        if (this.controlsEnabled && !this.isInvincible)
+        {
+            //touch controls  -------------------------------------
+                if (this.touchControlsEnabled)
                 {
-                    this.startTime = Time.time;
-                    touchDeltaPosition = mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.GetTouch(0).position);
-                    float touchInputX = (touchDeltaPosition.x );
-                    float touchInputY = (touchDeltaPosition.y );
-                    if (touchInputX > 0)
+                    if (Input.touchCount == 0)
+                    // if (Input.GetMouseButtonDown(0))
                     {
-                        this.animator.SetInteger("Direction", 0);
-                    }
-                    else
-                    {
-                        if (touchInputX < 0)
+                        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                        this.GetComponent<Rigidbody2D>().angularVelocity = 0; 
+                        Debug.Log("Pressed primary button.");
+                        this.startTime = Time.time;
+                        touchDeltaPosition = mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.GetTouch(0).position);
+                        // touchDeltaPosition = mainCamera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
+                        float touchInputX = (touchDeltaPosition.x );
+                        float touchInputY = (touchDeltaPosition.y );
+                        Vector2 playerPos = this.transform.position;
+                        var mouseDir = touchDeltaPosition - playerPos;
+                        Debug.Log(mouseDir);
+                        mouseDir = mouseDir.normalized;
+                        Debug.Log(mouseDir + " Normalized");
+                        if (touchInputX > 0)
                         {
-                            this.animator.SetInteger("Direction", 1);
+                            this.animator.SetInteger("Direction", 0);
                         }
+                        else
+                        {
+                            if (touchInputX < 0)
+                            {
+                                this.animator.SetInteger("Direction", 1);
+                            }
+                        }
+                        this.GetComponent<Rigidbody2D>().AddForce(mouseDir*300, ForceMode2D.Force);
+                        
                     }
-                    this.journeyLength = Vector2.Distance(this.transform.position, touchDeltaPosition);
                 }
+            else
+            {
+                this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
             }
-        else
-        {
-            this.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        }
-        float distCovered = (Time.time - startTime) * touchMoveSpeed;
-        float fractionOfJourney = distCovered / this.journeyLength;
-        this.transform.position = Vector2.Lerp(this.transform.position, touchDeltaPosition, fractionOfJourney);
-        if (this.onFire >= 1)
-        {
-            this.TakeDamage(1);
-            //Debug.Log("You are on fire");
-        }
-        if (this.onFire <= 0)
-        {
-            //Debug.Log("Safe!");
-        }
-        if (this.escaped <= 0 && this.win_delay <= 0)
-        {
-            this.YouWin();
+        
+            if (this.onFire >= 1)
+            {
+                this.TakeDamage(1);
+                //Debug.Log("You are on fire");
+            }
+            if (this.onFire <= 0)
+            {
+                //Debug.Log("Safe!");
+            }
+            if (this.escaped <= 0 && this.win_delay <= 0)
+            {
+                this.YouWin();
+            }
         }
     }
 

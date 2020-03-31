@@ -179,6 +179,11 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 50245499091900290, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 61770211655890918, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_Enabled
@@ -194,6 +199,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.319
       objectReference: {fileID: 0}
+    - target: {fileID: 82050068234671182, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c998e1ab6e5591944bac8dbecb0b9d3f, type: 3}
     - target: {fileID: 114681253171456106, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: mapCamera
@@ -245,6 +255,12 @@ PrefabInstance:
       propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212168209131470306, guid: c46707146fd4da34db5cbb2bfbd086fd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6f45915f39c6e3641b6d0ee88daa51bd,
+        type: 3}
     - target: {fileID: 224736508147904582, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -253,7 +269,7 @@ PrefabInstance:
     - target: {fileID: 224736508147904582, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0023498535
+      value: 0.002319336
       objectReference: {fileID: 0}
     - target: {fileID: 224772177938953644, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
@@ -263,7 +279,7 @@ PrefabInstance:
     - target: {fileID: 224772177938953644, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000091552734
+      value: -0.00012207031
       objectReference: {fileID: 0}
     - target: {fileID: 224967904250915492, guid: c46707146fd4da34db5cbb2bfbd086fd,
         type: 3}
@@ -809,7 +825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMarker: {fileID: 1301111297}
-  endMarker: {fileID: 0}
+  endMarker: {fileID: 1301111297}
   speed: 5
 --- !u!92 &1378754293
 Behaviour:
